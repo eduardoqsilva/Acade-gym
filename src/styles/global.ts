@@ -12,6 +12,7 @@ export const GlobalStyled = createGlobalStyle`
 
   body {
     font-family: ${font};
-    color: ${colors.white};
+    color: ${colors.gray7};
+    background-color: ${colors.gray1};
   }
 `
