@@ -10,8 +10,9 @@ export const DefaultTheme = {
     XS: '0.75rem',
   },
   border: {
-    borderRadius: '8px',
-    borderWidth: '2px',
+    buttonBorderRadius: 8,
+    boxBorderRadius: 11,
+    borderWidth: 2,
   },
   colors: {
     orange: '#EB5E28',
