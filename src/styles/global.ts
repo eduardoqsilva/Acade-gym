@@ -9,9 +9,9 @@ export const GlobalStyled = createGlobalStyle`
     margin: 0;
     box-sizing: border-box;
   }
-
+  
   body {
-    font-family: ${font};
+    font-family: ${font.default};
     color: ${colors.gray7};
     background-color: ${colors.gray1};
   }
