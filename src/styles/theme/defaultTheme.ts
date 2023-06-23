@@ -11,6 +11,7 @@ export const DefaultTheme = {
   },
   border: {
     buttonBorderRadius: 8,
+    inputBorderRadius: 5,
     boxBorderRadius: 11,
     borderWidth: 2,
   },
