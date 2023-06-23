@@ -1,7 +1,7 @@
 import styled, { css, keyframes } from 'styled-components'
 import { DefaultTheme } from '../../styles/theme/defaultTheme'
 
-const { font, fontSize, colors } = DefaultTheme
+const { font, fontSize, colors, border } = DefaultTheme
 
 const shake = keyframes`
   0% {
@@ -33,7 +33,8 @@ export const InputWrapperStyled = styled.div<InputType>`
     props.variation === '01' ? `${colors.gray2}` : 'transparent'};
   color: ${colors.gray4};
   padding: 0 1rem;
-  border-radius: ${(props) => (props.variation === '01' ? '5px' : '0px')};
+  border-radius: ${(props) =>
+    props.variation === '01' ? `${border.inputBorderRadius + 'px'}` : '0px'};
 
   transition: all 0.1s ease-in;
   margin-top: 18px;
@@ -47,10 +48,10 @@ export const InputWrapperStyled = styled.div<InputType>`
       ? css`
           ${props.variation === '01'
             ? css`
-                border: 2px solid ${colors.red_dark};
+                border: ${border.borderWidth} solid ${colors.red_dark};
               `
             : css`
-                border-bottom: 2px solid ${colors.red_dark};
+                border-bottom: ${border.borderWidth} solid ${colors.red_dark};
               `};
           color: ${colors.red};
           animation: ${shake} 0.1s 4 ease-in;
@@ -58,10 +59,10 @@ export const InputWrapperStyled = styled.div<InputType>`
       : css`
           ${props.variation === '01'
             ? css`
-                border: 2px solid transparent;
+                border: ${border.borderWidth} solid transparent;
               `
             : css`
-                border: 2px solid transparent;
+                border: ${border.borderWidth} solid transparent;
                 border-bottom: 2px solid #2f3030;
               `}
         `}
@@ -69,8 +70,8 @@ export const InputWrapperStyled = styled.div<InputType>`
   &:focus-within {
     ${(props) =>
       props.variation === '01'
-        ? `border: 2px solid ${colors.orange_light};`
-        : `border-bottom: 2px solid ${colors.orange_light};`}
+        ? `border: ${border.borderWidth} solid ${colors.orange_light};`
+        : `border-bottom: ${border.borderWidth} solid ${colors.orange_light};`}
     color: ${colors.white};
   }
 
@@ -144,7 +145,7 @@ export const DropdownStyled = styled.div<WarningType>`
   background-color: ${colors.gray2};
   color: ${colors.gray4};
   padding: 0 1rem;
-  border-radius: 5px;
+  border-radius: ${border.inputBorderRadius + 'px'};
   transition: all 0.1s ease-in;
   margin-top: 18px;
 
@@ -155,16 +156,16 @@ export const DropdownStyled = styled.div<WarningType>`
   ${(props) =>
     props.warning
       ? css`
-          border: 2px solid ${colors.red_dark};
+          border: ${border.borderWidth} solid ${colors.red_dark};
           color: ${colors.red};
           animation: ${shake} 0.1s 4 ease-in;
         `
       : css`
-          border: 2px solid transparent;
+          border: ${border.borderWidth} solid transparent;
         `}
 
   &:focus-within {
-    border: 2px solid ${colors.orange_light};
+    border: ${border.borderWidth} solid ${colors.orange_light};
     color: ${colors.white};
   }
 

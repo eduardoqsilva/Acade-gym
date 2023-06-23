@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components'
 import { DefaultTheme } from '../../styles/theme/defaultTheme'
 
-const { font, colors, border } = DefaultTheme
+const { font, fontSize, colors, border } = DefaultTheme
 
 interface ButtonTypeStyled {
   variation: 'primary' | 'secundary'
@@ -16,7 +16,7 @@ export const ButtonStyled = styled.button<ButtonTypeStyled>`
   transition: all 0.1s ease-in;
 
   font-family: ${font.default};
-  font-size: 1rem;
+  font-size: ${fontSize.M};
   font-weight: 500;
   letter-spacing: 0.18em;
   color: ${colors.white};
