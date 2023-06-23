@@ -7,7 +7,7 @@ export const DefaultTheme = {
     L: '1.25rem',
     M: '1rem',
     S: '0.875rem',
-    XS: '0.75rem',
+    XS: '0.625rem',
   },
   border: {
     buttonBorderRadius: 8,
