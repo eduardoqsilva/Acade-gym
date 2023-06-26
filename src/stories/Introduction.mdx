@@ -1,0 +1,210 @@
+import { Meta } from '@storybook/blocks';
+import Code from './assets/code-brackets.svg';
+import Nodejs from './assets/nodejs.svg';
+import Comments from './assets/comments.svg';
+import Direction from './assets/direction.svg';
+import Trello from './assets/trello.svg';
+import Figma from './assets/figma.svg';
+import Repo from './assets/repo.svg';
+import React from './assets/react.svg';
+
+<Meta title="Welcome/Readme" />
+
+<style>
+  {`
+    .subheading {
+      --mediumdark: '#999999';
+      font-weight: 700;
+      font-size: 13px;
+      color: #999;
+      letter-spacing: 6px;
+      line-height: 24px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+      margin-top: 40px;
+    }
+
+    .link-list {
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: 1fr 1fr;
+      row-gap: 10px;
+    }
+
+    @media (min-width: 620px) {
+      .link-list {
+        row-gap: 20px;
+        column-gap: 20px;
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media all and (-ms-high-contrast:none) {
+    .link-list {
+        display: -ms-grid;
+        -ms-grid-columns: 1fr 1fr;
+        -ms-grid-rows: 1fr 1fr;
+      }
+    }
+
+    .link-item {
+      display: block;
+      padding: 20px;
+      border: 1px solid #00000010;
+      border-radius: 5px;
+      transition: background 150ms ease-out, border 150ms ease-out, transform 150ms ease-out;
+      color: #333333;
+      display: flex;
+      align-items: flex-start;
+    }
+
+    .link-item:hover {
+      border-color: #1EA7FD50;
+      transform: translate3d(0, -3px, 0);
+      box-shadow: rgba(0, 0, 0, 0.08) 0 3px 10px 0;
+    }
+
+    .link-item:active {
+      border-color: #1EA7FD;
+      transform: translate3d(0, 0, 0);
+    }
+
+    .link-item strong {
+      font-weight: 700;
+      display: block;
+      margin-bottom: 2px;
+    }
+
+    .link-item img {
+      height: 40px;
+      width: 40px;
+      margin-right: 15px;
+      flex: none;
+    }
+
+    .link-item span,
+    .link-item p {
+      margin: 0;
+      font-size: 14px;
+      line-height: 20px;
+    }
+
+    .tip {
+      display: inline-block;
+      border-radius: 1em;
+      font-size: 11px;
+      line-height: 12px;
+      font-weight: 700;
+      background: #E7FDD8;
+      color: #66BF3C;
+      padding: 4px 12px;
+      margin-right: 10px;
+      vertical-align: top;
+    }
+
+    .tip-wrapper {
+      font-size: 13px;
+      line-height: 20px;
+      margin-top: 40px;
+      margin-bottom: 40px;
+    }
+
+    .tip-wrapper code {
+      font-size: 12px;
+      display: inline-block;
+    }
+  `}
+</style>
+
+# Bem vindo ao Projeto Acade
+
+O Acade é uma app para gerenciar academias de forma eficiente e inovadora. Com o Acade, os personais e academias podem acompanhar a evolução dos alunos e passar treinos personalizados para eles, de acordo com seus objetivos e necessidades. Além disso, o app exibe algumas métricas importantes, como o número de alunos ativos, a frequência média, o faturamento mensal e a satisfação dos clientes. O Acade é uma solução completa para quem quer oferecer um serviço de qualidade e se destacar no mercado fitness.
+
+Veja o repositório do acade no `GitHub`  [**Frontend**](https://github.com/eduardoqsilva/Acade-gym) e [**backend**](https://github.com/FabriNeves/acade-backend).
+
+<div className="subheading">Links Úteis</div>
+
+<div className="link-list">
+  <a
+    className="link-item"
+    href="https://www.figma.com/file/J2EBiCAQjllV7lJOEM8J9f/acade?type=design&node-id=0%3A1&mode=design&t=nr1SnmHmLmoTZJDp-1"
+    target="_blank"
+  >
+    <img src={Figma} alt="plugin" />
+    <span>
+      <strong>Projeto no figma</strong>
+      Acesse o projeto no figma.
+    </span>
+  </a>
+  <a
+    className="link-item"
+    href="https://github.com/eduardoqsilva/Acade-gym"
+    target="_blank"
+  >
+    <img src={React} alt="Build" />
+    <span>
+      <strong>Acesse repositório do front-end</strong>
+      tenha acesso ao código fonte do front-end.
+    </span>
+  </a>
+  <a
+    className="link-item"
+    href="https://github.com/FabriNeves/acade-backend"
+    target="_blank"
+  >
+    <img src={Nodejs} alt="colors" />
+    <span>
+      <strong>Acesse repositório do backend</strong>
+      tenha acesso ao código fonte do backend.
+    </span>
+  </a>
+  <a
+    className="link-item"
+    href="https://trello.com/invite/b/JND4n1ml/ATTI1e8db95796c61a2749bd12b11f49eb793C2FAD5A/app-academia"
+    target="_blank"
+  >
+    <img src={Trello} alt="flow" />
+    <span>
+      <strong>Acesse o Trello</strong>
+      Veja o que cada integrante da equipe acade está trabalhando.
+    </span>
+  </a>
+</div>
+
+<div className="subheading">Aprenda storybook</div>
+
+<div className="link-list">
+  <a className="link-item" href="https://storybook.js.org/docs" target="_blank">
+    <img src={Repo} alt="repo" />
+    <span>
+      <strong>Storybook documentation</strong>
+      Configure, customize, and extend
+    </span>
+  </a>
+  <a className="link-item" href="https://storybook.js.org/tutorials/" target="_blank">
+    <img src={Direction} alt="direction" />
+    <span>
+      <strong>In-depth guides</strong>
+      Best practices from leading teams
+    </span>
+  </a>
+  <a className="link-item" href="https://github.com/storybookjs/storybook" target="_blank">
+    <img src={Code} alt="code" />
+    <span>
+      <strong>GitHub project</strong>
+      View the source and add issues
+    </span>
+  </a>
+  <a className="link-item" href="https://discord.gg/storybook" target="_blank">
+    <img src={Comments} alt="comments" />
+    <span>
+      <strong>Discord chat</strong>
+      Chat with maintainers and the community
+    </span>
+  </a>
+</div>
+
+<div className="tip-wrapper">
+  <span className="tip">Tip</span>Utilize padrões de commit :{' '}
+  <code> git commit -m "refactor componentX ♻️"</code>
+</div>
