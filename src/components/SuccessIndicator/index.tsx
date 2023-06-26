@@ -23,7 +23,7 @@ export function SuccessIndicator({
     let timeOut: number
 
     if (redirect && indicate[0] && indicate[1]) {
-      timeOut = setTimeout(() => {
+      timeOut = window.setTimeout(() => {
         navigate(redirect)
       }, 1500)
     }
