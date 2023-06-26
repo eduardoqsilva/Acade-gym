@@ -1,4 +1,4 @@
-import { IconContext } from '@phosphor-icons/react'
+import { Code, IconContext } from '@phosphor-icons/react'
 import {
   DropdownStyled,
   InputWrapperStyled,
@@ -7,7 +7,7 @@ import {
 import { DropdownInputType, TextInputType } from './inputsType'
 
 export function Input({
-  icon,
+  icon = <Code />,
   type,
   placeholder,
   label,
@@ -38,7 +38,7 @@ export function Input({
 }
 
 export function Dropdown({
-  icon,
+  icon = <Code />,
   label,
   requered,
   itens,
