@@ -48,10 +48,11 @@ export const InputWrapperStyled = styled.div<InputType>`
       ? css`
           ${props.variation === '01'
             ? css`
-                border: ${border.borderWidth} solid ${colors.red_dark};
+                border: ${border.borderWidth + 'px'} solid ${colors.red_dark};
               `
             : css`
-                border-bottom: ${border.borderWidth} solid ${colors.red_dark};
+                border-bottom: ${border.borderWidth + 'px'} solid
+                  ${colors.red_dark};
               `};
           color: ${colors.red};
           animation: ${shake} 0.1s 4 ease-in;
@@ -59,10 +60,10 @@ export const InputWrapperStyled = styled.div<InputType>`
       : css`
           ${props.variation === '01'
             ? css`
-                border: ${border.borderWidth} solid transparent;
+                border: ${border.borderWidth + 'px'} solid transparent;
               `
             : css`
-                border: ${border.borderWidth} solid transparent;
+                border: ${border.borderWidth + 'px'} solid transparent;
                 border-bottom: 2px solid #2f3030;
               `}
         `}
@@ -70,8 +71,10 @@ export const InputWrapperStyled = styled.div<InputType>`
   &:focus-within {
     ${(props) =>
       props.variation === '01'
-        ? `border: ${border.borderWidth} solid ${colors.orange_light};`
-        : `border-bottom: ${border.borderWidth} solid ${colors.orange_light};`}
+        ? `border: ${border.borderWidth + 'px'} solid ${colors.orange_light};`
+        : `border-bottom: ${border.borderWidth + 'px'} solid ${
+            colors.orange_light
+          };`}
     color: ${colors.white};
   }
 
@@ -156,16 +159,16 @@ export const DropdownStyled = styled.div<WarningType>`
   ${(props) =>
     props.warning
       ? css`
-          border: ${border.borderWidth} solid ${colors.red_dark};
+          border: ${border.borderWidth + 'px'} solid ${colors.red_dark};
           color: ${colors.red};
           animation: ${shake} 0.1s 4 ease-in;
         `
       : css`
-          border: ${border.borderWidth} solid transparent;
+          border: ${border.borderWidth + 'px'} solid transparent;
         `}
 
   &:focus-within {
-    border: ${border.borderWidth} solid ${colors.orange_light};
+    border: ${border.borderWidth + 'px'} solid ${colors.orange_light};
     color: ${colors.white};
   }
 

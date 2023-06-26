@@ -26,7 +26,7 @@ export const ButtonStyled = styled.button<ButtonTypeStyled>`
     props.variation === 'secundary'
       ? css`
           background-color: transparent;
-          border: ${border.borderWidth} solid ${colors.orange};
+          border: ${border.borderWidth + 'px'} solid ${colors.orange};
           color: ${colors.orange};
         `
       : ''}
@@ -40,7 +40,7 @@ export const ButtonStyled = styled.button<ButtonTypeStyled>`
       props.variation === 'secundary'
         ? css`
             background-color: transparent;
-            border: ${border.borderWidth} solid ${colors.orange_light};
+            border: ${border.borderWidth + 'px'} solid ${colors.orange_light};
             color: ${colors.orange_light};
           `
         : css`
@@ -54,7 +54,7 @@ export const ButtonStyled = styled.button<ButtonTypeStyled>`
       props.variation === 'secundary'
         ? css`
             background-color: transparent;
-            border: ${border.borderWidth} solid ${colors.orange_dark};
+            border: ${border.borderWidth + 'px'} solid ${colors.orange_dark};
             color: ${colors.orange_dark};
           `
         : ''}
