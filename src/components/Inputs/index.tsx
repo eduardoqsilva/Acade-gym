@@ -1,10 +1,11 @@
 import { Code, IconContext } from '@phosphor-icons/react'
 import {
+  CheckBoxStyled,
   DropdownStyled,
   InputWrapperStyled,
   WarningStyled,
 } from './inputs.styled'
-import { DropdownInputType, TextInputType } from './inputsType'
+import { CheckBoxType, DropdownInputType, TextInputType } from './inputsType'
 
 export function Input({
   icon = <Code />,
@@ -70,5 +71,16 @@ export function Dropdown({
         </select>
       </DropdownStyled>
     </div>
+  )
+}
+
+export function CheckBox({ text, link }: CheckBoxType) {
+  return (
+    <CheckBoxStyled>
+      <input type="checkbox" id={text} />
+      <label htmlFor={text}>
+        {text} {link ? <a href={link[0]}>{link[1]}</a> : text}
+      </label>
+    </CheckBoxStyled>
   )
 }

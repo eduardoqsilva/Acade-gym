@@ -19,3 +19,8 @@ export interface DropdownInputType {
   itens: string[]
   warning: boolean
 }
+
+export interface CheckBoxType {
+  text: string
+  link?: [link: string, text: string]
+}
