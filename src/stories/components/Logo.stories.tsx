@@ -1,9 +1,9 @@
 import { Meta, StoryObj } from '@storybook/react'
-import { Logo } from '../components/Logo'
-import { LogoType } from '../components/Logo/logoType'
+import { Logo } from '../../components/Logo'
+import { LogoType } from '../../components/Logo/logoType'
 
 export default {
-  title: 'Logo/Logo',
+  title: 'Global-components/Logo/Logo',
   component: Logo,
   tags: ['autodocs'],
   args: {

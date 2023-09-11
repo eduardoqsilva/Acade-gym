@@ -1,17 +1,17 @@
 import { Meta, StoryObj } from '@storybook/react'
-import { DivWrapper } from '../../.storybook/decorators'
-import { Dropdown } from '../components/Inputs'
-import { DropdownInputType } from '../components/Inputs/inputsType'
+import { DivWrapperInputs } from '../../../.storybook/decorators'
+import { Dropdown } from '../../components/Inputs'
+import { DropdownInputType } from '../../components/Inputs/inputsType'
 
 export default {
-  title: 'Inputs/Dropdown',
+  title: 'Global-components/Inputs/Dropdown',
   component: Dropdown,
   tags: ['autodocs'],
   args: {
     itens: ['Item1', 'Item2', 'Item3'],
     label: 'Dropdown',
   },
-  decorators: [DivWrapper],
+  decorators: [DivWrapperInputs],
 } as Meta<DropdownInputType>
 
 export const Default: StoryObj<DropdownInputType> = {

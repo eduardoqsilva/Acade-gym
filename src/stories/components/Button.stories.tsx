@@ -1,10 +1,10 @@
 import { Meta, StoryObj } from '@storybook/react'
-import { Button } from '../components/Button'
-import { ButtonType } from '../components/Button/buttonType'
-import { DivWrapper } from '../../.storybook/decorators'
+import { Button } from '../../components/Button'
+import { ButtonType } from '../../components/Button/buttonType'
+import { DivWrapperButton } from '../../../.storybook/decorators'
 
 export default {
-  title: 'Button/Button',
+  title: 'Global-components/Button/Button',
   component: Button,
   tags: ['autodocs'],
   args: {
@@ -13,7 +13,7 @@ export default {
   argTypes: {
     click: { action: 'click' },
   },
-  decorators: [DivWrapper],
+  decorators: [DivWrapperButton],
 } as Meta<ButtonType>
 
 export const Primary: StoryObj<ButtonType> = {
