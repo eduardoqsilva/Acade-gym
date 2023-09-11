@@ -1,7 +1,4 @@
 import { createGlobalStyle } from 'styled-components'
-import { DefaultTheme } from './theme/defaultTheme'
-
-const { font, colors } = DefaultTheme
 
 export const GlobalStyled = createGlobalStyle`
   *{
@@ -11,8 +8,8 @@ export const GlobalStyled = createGlobalStyle`
   }
   
   body {
-    font-family: ${font.default};
-    color: ${colors.gray7};
-    background-color: ${colors.gray1};
+    font-family: ${(props) => props.theme.font.default};
+    color: ${(props) => props.theme.colors.gray7};
+    background-color: ${(props) => props.theme.colors.gray1};
   }
 `
