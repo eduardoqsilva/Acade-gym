@@ -1,61 +1,62 @@
 import styled, { css } from 'styled-components'
-import { DefaultTheme } from '../../styles/theme/defaultTheme'
-
-const { font, fontSize, colors, border } = DefaultTheme
 
 interface ButtonTypeStyled {
   variation: 'primary' | 'secundary'
-  radius: number
+  radius?: string
 }
 export const ButtonStyled = styled.button<ButtonTypeStyled>`
   width: 100%;
   height: 53px;
-  border-radius: ${(props) => props.radius + 'px'};
-  background-color: ${colors.orange};
+  border-radius: ${(props) =>
+    props.radius ? props.radius : props.theme.border.buttonBorderRadius};
+  background-color: ${(props) => props.theme.colors.orange};
   border: none;
   transition: all 0.1s ease-in;
 
-  font-family: ${font.default};
-  font-size: ${fontSize.M};
+  font-family: ${(props) => props.theme.font.default};
+  font-size: ${(props) => props.theme.fontSize.M};
   font-weight: 500;
   letter-spacing: 0.18em;
-  color: ${colors.white};
+  color: ${(props) => props.theme.colors.white};
   cursor: pointer;
 
   ${(props) =>
     props.variation === 'secundary'
       ? css`
           background-color: transparent;
-          border: ${border.borderWidth + 'px'} solid ${colors.orange};
-          color: ${colors.orange};
+          border: ${props.theme.border.borderWidth} solid
+            ${props.theme.colors.orange};
+          color: ${props.theme.colors.orange};
         `
       : ''}
 
   &:not(:disabled):hover {
-    transform: scale(1.03);
+    transform: scale(1.01);
   }
   &:not(:disabled):active {
-    transform: scale(0.95);
+    transform: scale(0.98);
     ${(props) =>
       props.variation === 'secundary'
         ? css`
             background-color: transparent;
-            border: ${border.borderWidth + 'px'} solid ${colors.orange_light};
-            color: ${colors.orange_light};
+            border: ${props.theme.border.borderWidth} solid
+              ${props.theme.colors.orange_light};
+            color: ${props.theme.colors.orange_light};
           `
         : css`
-            background-color: ${colors.orange_light};
+            background-color: ${props.theme.colors.orange_light};
           `}
   }
   &:disabled {
-    background-color: ${colors.orange_dark};
+    background-color: ${(props) => props.theme.colors.orange_dark};
     cursor: not-allowed;
     ${(props) =>
       props.variation === 'secundary'
         ? css`
             background-color: transparent;
-            border: ${border.borderWidth + 'px'} solid ${colors.orange_dark};
-            color: ${colors.orange_dark};
+            border: ${props.theme.border.borderWidth} solid
+              ${props.theme.colors.orange_dark};
+            color: ${props.theme.colors.orange_dark};
           `
         : ''}
   }
