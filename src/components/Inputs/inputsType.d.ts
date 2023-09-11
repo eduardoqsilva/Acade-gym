@@ -1,12 +1,12 @@
-import React from 'react'
+import React, { InputHTMLAttributes, ReactNode } from 'react'
 import { IconProps } from '@phosphor-icons/react'
 
-export interface TextInputType {
+export type InputProps = InputHTMLAttributes<HTMLInputElement>
+
+export interface TextInputType extends Omit<InputProps, 'type'> {
+  type: 'number' | 'email' | 'text' | 'date' | 'password'
   icon?: React.ReactElement<IconProps>
-  type: 'email' | 'text' | 'number' | 'date' | 'password'
-  placeholder?: string
   label: string
-  required?: boolean
   variation?: '01' | '02'
   warning: boolean
   msgError: string
@@ -15,12 +15,12 @@ export interface TextInputType {
 export interface DropdownInputType {
   icon?: React.ReactElement<IconProps>
   label: string
-  requered?: boolean
+  required?: boolean
   itens: string[]
   warning: boolean
 }
 
 export interface CheckBoxType {
-  text: string
-  link?: [link: string, text: string]
+  name: string
+  text: ReactNode
 }

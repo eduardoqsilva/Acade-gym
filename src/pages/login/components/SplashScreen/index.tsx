@@ -1,16 +1,16 @@
-import { useEffect, useState } from 'react'
+import { useLayoutEffect, useState } from 'react'
 import { ImgBack, SplashWrapper } from './splash.styled'
 import { splashType } from './splashType'
-import { Logo } from '../Logo'
+import { Logo } from '../../../../components/Logo'
 
 import background from '../../assets/imgs/splash/splash.webp'
 
-export function SplashScreen({ refLogo }: splashType) {
+export function SplashScreen({ refLogo, width = 120 }: splashType) {
   const [show, setShow] = useState(true)
   const [load, setLoad] = useState(false)
   const [position, setPosition] = useState<number>()
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (refLogo.current) {
       const pos = refLogo.current?.getBoundingClientRect()
       const height = Math.round(pos.height / 2) // metade do logo
@@ -32,7 +32,7 @@ export function SplashScreen({ refLogo }: splashType) {
           onLoad={() => setLoad(true)}
         />
       </ImgBack>
-      <Logo width={120} color={'2'} />
+      <Logo width={width} color={'2'} />
     </SplashWrapper>
   )
 }

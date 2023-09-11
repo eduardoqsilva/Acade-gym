@@ -1,7 +1,4 @@
 import styled, { css, keyframes } from 'styled-components'
-import { DefaultTheme } from '../../styles/theme/defaultTheme'
-
-const { font, fontSize, colors, border } = DefaultTheme
 
 const shake = keyframes`
   0% {
@@ -30,16 +27,18 @@ export const InputWrapperStyled = styled.div<InputType>`
   gap: 1rem;
 
   background-color: ${(props) =>
-    props.variation === '01' ? `${colors.gray2}` : 'transparent'};
-  color: ${colors.gray4};
+    props.variation === '01' ? `${props.theme.colors.gray2}` : 'transparent'};
+  color: ${(props) => props.theme.colors.gray4};
   padding: 0 1rem;
   border-radius: ${(props) =>
-    props.variation === '01' ? `${border.inputBorderRadius + 'px'}` : '0px'};
+    props.variation === '01'
+      ? `${props.theme.border.inputBorderRadius}`
+      : '0px'};
 
   transition: all 0.1s ease-in;
   margin-top: 18px;
 
-  font-family: ${font.default};
+  font-family: ${(props) => props.theme.font.default};
 
   position: relative;
 
@@ -48,22 +47,25 @@ export const InputWrapperStyled = styled.div<InputType>`
       ? css`
           ${props.variation === '01'
             ? css`
-                border: ${border.borderWidth + 'px'} solid ${colors.red_dark};
+                border: ${props.theme.border.borderWidth} solid
+                  ${props.theme.colors.red_dark};
               `
             : css`
-                border-bottom: ${border.borderWidth + 'px'} solid
-                  ${colors.red_dark};
+                border-bottom: ${props.theme.border.borderWidth} solid
+                  ${props.theme.colors.red_dark};
               `};
-          color: ${colors.red};
+          color: ${(props) => props.theme.colors.red};
           animation: ${shake} 0.1s 4 ease-in;
         `
       : css`
           ${props.variation === '01'
             ? css`
-                border: ${border.borderWidth + 'px'} solid transparent;
+                border: ${(props) => props.theme.border.borderWidth} solid
+                  transparent;
               `
             : css`
-                border: ${border.borderWidth + 'px'} solid transparent;
+                border: ${(props) => props.theme.border.borderWidth} solid
+                  transparent;
                 border-bottom: 2px solid #2f3030;
               `}
         `}
@@ -71,11 +73,9 @@ export const InputWrapperStyled = styled.div<InputType>`
   &:focus-within {
     ${(props) =>
       props.variation === '01'
-        ? `border: ${border.borderWidth + 'px'} solid ${colors.orange_light};`
-        : `border-bottom: ${border.borderWidth + 'px'} solid ${
-            colors.orange_light
-          };`}
-    color: ${colors.white};
+        ? `border: ${props.theme.border.borderWidth} solid ${props.theme.colors.orange_light};`
+        : `border-bottom: ${props.theme.border.borderWidth} solid ${props.theme.colors.orange_light};`}
+    color: ${(props) => props.theme.colors.white};
   }
 
   & label {
@@ -85,10 +85,10 @@ export const InputWrapperStyled = styled.div<InputType>`
 
     font-style: normal;
     font-weight: 400;
-    font-size: ${fontSize.XS};
+    font-size: ${(props) => props.theme.fontSize.XS};
     line-height: 12px;
     letter-spacing: 0.18em;
-    color: ${colors.gray7};
+    color: ${(props) => props.theme.colors.gray7};
   }
 
   & input {
@@ -96,28 +96,31 @@ export const InputWrapperStyled = styled.div<InputType>`
     width: 100%;
 
     background-color: ${(props) =>
-      props.variation === '01' ? `${colors.gray2}` : 'transparent'};
+      props.variation === '01' ? `${props.theme.colors.gray2}` : 'transparent'};
     border: none;
     outline: none;
-    caret-color: ${colors.white};
+    caret-color: ${(props) => props.theme.colors.white};
 
-    font-family: ${font.default};
+    font-family: ${(props) => props.theme.font.default};
     font-weight: 400;
-    font-size: ${fontSize.M};
+    font-size: ${(props) => props.theme.fontSize.M};
     line-height: 19px;
     letter-spacing: 0.18em;
-    color: ${(props) => (props.warning ? `${colors.red}` : `${colors.white}`)};
+    color: ${(props) =>
+      props.warning
+        ? `${props.theme.colors.red}`
+        : `${props.theme.colors.white}`};
 
     &::placeholder {
-      color: ${colors.gray4};
-      font-family: ${font.default};
+      color: ${(props) => props.theme.colors.gray4};
+      font-family: ${(props) => props.theme.font.default};
       font-weight: 400;
-      font-size: ${fontSize.M};
+      font-size: ${(props) => props.theme.fontSize.M};
       letter-spacing: 0.18em;
       line-height: 19px;
     }
     &:focus {
-      color: ${colors.white};
+      color: ${(props) => props.theme.colors.white};
     }
   }
 
@@ -145,31 +148,33 @@ export const DropdownStyled = styled.div<WarningType>`
   align-items: center;
   gap: 1rem;
 
-  background-color: ${colors.gray2};
-  color: ${colors.gray4};
+  background-color: ${(props) => props.theme.colors.gray2};
+  color: ${(props) => props.theme.colors.gray4};
   padding: 0 1rem;
-  border-radius: ${border.inputBorderRadius + 'px'};
+  border-radius: ${(props) => props.theme.border.inputBorderRadius};
   transition: all 0.1s ease-in;
   margin-top: 18px;
 
-  font-family: ${font.default};
+  font-family: ${(props) => props.theme.font.default};
 
   position: relative;
 
   ${(props) =>
     props.warning
       ? css`
-          border: ${border.borderWidth + 'px'} solid ${colors.red_dark};
-          color: ${colors.red};
+          border: ${props.theme.border.borderWidth} solid
+            ${props.theme.colors.red_dark};
+          color: ${props.theme.colors.red};
           animation: ${shake} 0.1s 4 ease-in;
         `
       : css`
-          border: ${border.borderWidth + 'px'} solid transparent;
+          border: ${props.theme.border.borderWidth} solid transparent;
         `}
 
   &:focus-within {
-    border: ${border.borderWidth + 'px'} solid ${colors.orange_light};
-    color: ${colors.white};
+    border: ${(props) => props.theme.border.borderWidth} solid
+      ${(props) => props.theme.colors.orange_light};
+    color: ${(props) => props.theme.colors.white};
   }
 
   & label {
@@ -179,34 +184,34 @@ export const DropdownStyled = styled.div<WarningType>`
 
     font-style: normal;
     font-weight: 400;
-    font-size: ${fontSize.XS};
+    font-size: ${(props) => props.theme.fontSize.XS};
     line-height: 12px;
     letter-spacing: 0.18em;
-    color: ${colors.gray7};
+    color: ${(props) => props.theme.colors.gray7};
   }
 
   & select {
     width: 100%;
     height: 100%;
-    background: ${colors.gray2};
-    color: ${colors.gray5};
+    background: ${(props) => props.theme.colors.gray2};
+    color: ${(props) => props.theme.colors.gray5};
     border: none;
     outline: none;
-    font-family: ${font.default};
-    font-size: ${fontSize.M};
+    font-family: ${(props) => props.theme.font.default};
+    font-size: ${(props) => props.theme.fontSize.M};
     font-style: normal;
     font-weight: 400;
     line-height: 19px;
     letter-spacing: 0.18em;
   }
 `
-export const WarningStyled = styled.span<WarningType>`
+export const ErrorTextStyled = styled.span<WarningType>`
   width: 100%;
   visibility: ${(props) => (props.warning ? 'visible' : 'hidden')};
 
-  color: ${colors.red};
-  font-family: ${font.default};
-  font-size: ${fontSize.XS};
+  color: ${(props) => props.theme.colors.red};
+  font-family: ${(props) => props.theme.font.default};
+  font-size: ${(props) => props.theme.fontSize.XS};
   font-weight: 400;
   transition: all 0.1s ease-in;
 `
@@ -222,7 +227,7 @@ export const CheckBoxStyled = styled.div`
     -webkit-appearance: none;
     width: 16px;
     height: 16px;
-    background-color: ${colors.white};
+    background-color: ${(props) => props.theme.colors.white};
     border-radius: 3px;
     border: none;
     cursor: pointer;
@@ -234,7 +239,7 @@ export const CheckBoxStyled = styled.div`
     transition: all 0.1s ease-in;
 
     &:checked {
-      background-color: ${colors.orange};
+      background-color: ${(props) => props.theme.colors.orange};
     }
     &:checked::after {
       content: '';
@@ -250,15 +255,15 @@ export const CheckBoxStyled = styled.div`
   }
 
   & label {
-    font-size: ${fontSize.M};
+    font-size: ${(props) => props.theme.fontSize.M};
     font-weight: 400;
     letter-spacing: 0;
-    color: ${colors.gray7};
+    color: ${(props) => props.theme.colors.gray7};
 
     & a {
       text-decoration: none;
       font-weight: 500;
-      color: ${colors.orange_light};
+      color: ${(props) => props.theme.colors.orange_light};
     }
   }
 `

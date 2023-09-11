@@ -1,15 +1,12 @@
-import { DefaultTheme } from '../../styles/theme/defaultTheme'
 import { ButtonType } from './buttonType'
 import { ButtonStyled } from './button.styled'
-
-const { border } = DefaultTheme
 
 export function Button({
   text,
   disable,
   type = 'button',
   variation = 'primary',
-  radius = border.buttonBorderRadius,
+  radius,
   click,
 }: ButtonType) {
   return (

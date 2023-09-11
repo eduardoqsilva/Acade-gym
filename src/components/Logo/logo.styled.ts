@@ -1,7 +1,4 @@
 import styled from 'styled-components'
-import { DefaultTheme } from '../../styles/theme/defaultTheme'
-
-const { colors } = DefaultTheme
 
 interface LogoTypeStyled {
   color: '1' | '2'
@@ -16,7 +13,9 @@ export const LogoStyled = styled.div<LogoTypeStyled>`
     height: 100%;
     width: 100%;
     color: ${(props) =>
-      props.color === '1' ? `${colors.orange}` : `${colors.white}`};
+      props.color === '1'
+        ? `${props.theme.colors.orange}`
+        : `${props.theme.colors.white}`};
   }
 
   @media (max-height: 670px) {

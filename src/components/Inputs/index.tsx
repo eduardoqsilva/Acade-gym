@@ -1,47 +1,52 @@
+import React from 'react'
 import { Code, IconContext } from '@phosphor-icons/react'
 import {
   CheckBoxStyled,
   DropdownStyled,
+  ErrorTextStyled,
   InputWrapperStyled,
-  WarningStyled,
 } from './inputs.styled'
 import { CheckBoxType, DropdownInputType, TextInputType } from './inputsType'
 
-export function Input({
-  icon = <Code />,
-  type,
-  placeholder,
-  label,
-  required,
-  variation = '01',
-  warning,
-  msgError,
-}: TextInputType) {
-  return (
-    <div>
-      <InputWrapperStyled variation={variation} warning={warning}>
-        <IconContext.Provider
-          value={{
-            size: 25,
-            weight: 'regular',
-            color: 'currentColor',
-          }}
-        >
-          {icon}
-        </IconContext.Provider>
+export const Input = React.forwardRef<HTMLInputElement, TextInputType>(
+  function Input(
+    {
+      type = 'text',
+      label,
+      warning,
+      msgError,
+      variation = '01',
+      icon = <Code />,
+      ...props
+    },
+    ref,
+  ) {
+    return (
+      <div>
+        <InputWrapperStyled variation={variation} warning={warning}>
+          <IconContext.Provider
+            value={{
+              size: 25,
+              weight: 'regular',
+              color: 'currentColor',
+            }}
+          >
+            {icon}
+          </IconContext.Provider>
 
-        <label>{label}</label>
-        <input placeholder={placeholder} required={required} type={type} />
-      </InputWrapperStyled>
-      <WarningStyled warning={warning}>{msgError}</WarningStyled>
-    </div>
-  )
-}
+          <label>{label}</label>
+          <input ref={ref} {...props} type={type} />
+        </InputWrapperStyled>
+        <ErrorTextStyled warning={warning}>{msgError}</ErrorTextStyled>
+      </div>
+    )
+  },
+)
 
 export function Dropdown({
   icon = <Code />,
   label,
-  requered,
+  required,
   itens,
   warning,
 }: DropdownInputType) {
@@ -59,7 +64,7 @@ export function Dropdown({
         </IconContext.Provider>
 
         <label>{label}</label>
-        <select name="sexo" required={requered}>
+        <select name="sexo" required={required}>
           <option value="">--</option>
           {itens.map((i, id) => {
             return (
@@ -74,13 +79,11 @@ export function Dropdown({
   )
 }
 
-export function CheckBox({ text, link }: CheckBoxType) {
+export function CheckBox({ text, name }: CheckBoxType) {
   return (
     <CheckBoxStyled>
-      <input type="checkbox" id={text} />
-      <label htmlFor={text}>
-        {text} {link ? <a href={link[0]}>{link[1]}</a> : text}
-      </label>
+      <input type="checkbox" id={name} />
+      <label htmlFor={name}>{text}</label>
     </CheckBoxStyled>
   )
 }
