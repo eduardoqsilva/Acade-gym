@@ -1,8 +1,5 @@
 import styled, { keyframes } from 'styled-components'
-import { DefaultTheme } from '../../styles/theme/defaultTheme'
 import { LogoStyled } from '../Logo/logo.styled'
-
-const { colors } = DefaultTheme
 
 const Loading = keyframes`
   0%{
@@ -25,7 +22,7 @@ export const LoadingWrapperStyled = styled.div<LoadingTypeStyled>`
 
   width: 100vw;
   height: 100vh;
-  background-color: ${colors.gray1};
+  background-color: ${(props) => props.theme.colors.gray1};
 
   display: ${(props) => (props.$show ? 'flex' : 'none')};
   align-items: center;

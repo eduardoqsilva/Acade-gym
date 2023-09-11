@@ -1,9 +1,9 @@
 import { Meta, StoryObj } from '@storybook/react'
-import { Loading } from '../components/Loading'
-import { LoadingType } from '../components/Loading/loadingType'
+import { Loading } from '../../components/Loading'
+import { LoadingType } from '../../components/Loading/loadingType'
 
 export default {
-  title: 'Loading/Loading',
+  title: 'Global-components/Loading/Loading',
   component: Loading,
   args: {
     load: true,
