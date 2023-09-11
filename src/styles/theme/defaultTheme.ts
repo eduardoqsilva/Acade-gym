@@ -10,20 +10,22 @@ export const DefaultTheme = {
     XS: '0.625rem',
   },
   border: {
-    buttonBorderRadius: 8,
-    inputBorderRadius: 5,
-    boxBorderRadius: 11,
-    borderWidth: 2,
+    buttonBorderRadius: '8px',
+    inputBorderRadius: '5px',
+    boxBorderRadius: '11px',
+    borderWidth: '2px',
   },
   colors: {
     orange: '#EB5E28',
     orange_light: '#FF7541',
     orange_dark: '#783116',
 
-    red: '#F03847',
-    red_dark: '#7A1921',
-
-    green_light: '#8FF7A7',
+    red: '#ef4444',
+    red_light: '#f87171',
+    red_dark: '#dc2626',
+    green: '#22c55e',
+    green_light: '#86efac',
+    green_dark: '#16a34a',
     yellow: '#F2C14E',
 
     gray1: '#121214',
