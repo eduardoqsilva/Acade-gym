@@ -1,26 +1,19 @@
-import type { Preview } from "@storybook/react";
+import React from 'react';
+import type { Preview } from '@storybook/react';
 import { themes } from '@storybook/theming';
-import { withThemeFromJSXProvider } from '@storybook/addon-styling';
-import { createGlobalStyle } from 'styled-components';
+import { ThemeProvider } from 'styled-components';
 import { DefaultTheme } from '../src/styles/theme/defaultTheme'
-
-const {colors, font} = DefaultTheme
-
-const GlobalStyles = createGlobalStyle`
-  *{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-  }
-  
-  body {
-    font-family: ${font.default};
-    color: ${colors.gray7};
-    background-color: ${colors.gray1};
-  }
-`;
+import { GlobalStyled } from '../src/styles/global.styled'
 
 const preview: Preview = {
+  decorators: [
+    (Story) => (
+      <ThemeProvider theme={DefaultTheme}>
+        <GlobalStyled />
+        <Story />
+      </ThemeProvider>
+    ),
+  ],
   parameters: {
     actions: { argTypesRegex: "^on[A-Z].*" },
     controls: {
@@ -43,7 +36,7 @@ const preview: Preview = {
       ],
     },
   },
-};
+}
 
 export const parameters = {
   darkMode: {
@@ -54,12 +47,6 @@ export const parameters = {
     // Set the initial theme
     current: 'dark',
   },
-};
-
-export const decorators = [
-  withThemeFromJSXProvider({
-    GlobalStyles, // Adds your GlobalStyle component to all stories
-  }),
-];
+}
 
 export default preview;
