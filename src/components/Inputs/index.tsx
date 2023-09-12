@@ -34,8 +34,8 @@ export const Input = React.forwardRef<HTMLInputElement, TextInputType>(
             {icon}
           </IconContext.Provider>
 
-          <label>{label}</label>
-          <input ref={ref} {...props} type={type} />
+          <label htmlFor={label}>{label}</label>
+          <input id={label} ref={ref} {...props} type={type} />
         </InputWrapperStyled>
         <ErrorTextStyled warning={warning}>{msgError}</ErrorTextStyled>
       </div>
