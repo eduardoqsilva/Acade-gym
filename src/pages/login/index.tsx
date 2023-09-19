@@ -1,50 +1,54 @@
-import { useForm } from 'react-hook-form'
-import { z } from 'zod'
-import { zodResolver } from '@hookform/resolvers/zod'
+import { useRef } from 'react'
+
+import { SplashScreen } from './components/SplashScreen'
+import { LoginIsSuccessModal } from './components/LoginIsSuccessModal'
+import { Logo } from '../../components/Logo'
 import { Input } from '../../components/Inputs'
 import { Button } from '../../components/Button'
-import { Logo } from '../../components/Logo'
-import { At, LockKey } from '@phosphor-icons/react'
+
+import { useFormLogin } from './useFormLogin'
+import { useLoginSubmit } from './useLoginSubmit'
+import { useModal } from './useModal'
+
 import { ContainerStyled, FormStyled, WrapperStyled } from './login.styled'
-
-const schemaForm = z.object({
-  login: z.object({
-    email: z.string().email('O e-mail precisa ser válido!'),
-    password: z
-      .string()
-      .min(8, 'A senha precisa ter no mínimo 8 caracteres!')
-      .max(16, 'A senha não pode ter mais de 16 caracteres!'),
-  }),
-})
-
-type FormProps = z.infer<typeof schemaForm>
+import { At, LockKey } from '@phosphor-icons/react'
 
 export function Login() {
   const {
-    handleSubmit,
-    register,
-    formState: { errors },
-  } = useForm<FormProps>({
-    criteriaMode: 'all',
-    mode: 'all',
-    resolver: zodResolver(schemaForm),
-    defaultValues: {
-      login: {
-        email: '',
-        password: '',
-      },
-    },
+    isOpen,
+    modalState,
+    errorMsg,
+    handleCloseModal,
+    changeModalState,
+    openModal,
+    setModalErrorMsg,
+  } = useModal()
+
+  const { loginSubmit } = useLoginSubmit({
+    changeModalState,
+    openModal,
+    setModalErrorMsg,
   })
 
-  function handleFormSubmit(data: FormProps) {
-    console.log(data)
-  }
+  const { errors, register, handleSubmit } = useFormLogin()
+
+  const ref = useRef<HTMLDivElement>(null)
 
   return (
     <ContainerStyled>
+      <SplashScreen refLogo={ref} />
+      <LoginIsSuccessModal
+        isOpen={isOpen}
+        onClose={handleCloseModal}
+        modalState={modalState}
+        errorMsg={errorMsg}
+        redirect="/home"
+      />
       <WrapperStyled>
-        <Logo width={120} />
-        <FormStyled onSubmit={handleSubmit(handleFormSubmit)}>
+        <div ref={ref}>
+          <Logo width={120} />
+        </div>
+        <FormStyled onSubmit={handleSubmit(loginSubmit)}>
           <h2 className="title">Login</h2>
           <Input
             icon={<At />}
