@@ -1,7 +1,7 @@
 import { Meta, StoryObj } from '@storybook/react'
 import { DivWrapperInputs } from '../../../.storybook/decorators'
 import { Input } from '../../components/Inputs'
-import { TextInputType } from '../../components/Inputs/inputsType'
+import { InputType } from '../../components/Inputs/inputsType'
 
 export default {
   title: 'Global-components/Inputs/Input',
@@ -9,20 +9,20 @@ export default {
   tags: ['autodocs'],
   args: {
     label: 'Label:',
-    msgError: 'error input message',
+    msgError: '',
     placeholder: 'Your placeholder here',
     type: 'text',
   },
   decorators: [DivWrapperInputs],
-} as Meta<TextInputType>
+} as Meta<InputType>
 
-export const Variation01: StoryObj<TextInputType> = {
+export const Variation01: StoryObj<InputType> = {
   args: {
     variation: '01',
   },
 }
 
-export const Variation02: StoryObj<TextInputType> = {
+export const Variation02: StoryObj<InputType> = {
   args: {
     variation: '02',
   },
