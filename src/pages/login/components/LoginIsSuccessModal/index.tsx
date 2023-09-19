@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { LoginIsSuccessModalType } from './sucessIndicator'
+import { LoginIsSuccessModalType } from './loginIsSuccessModalTypes'
 import {
   CheckCircle,
   CircleNotch,
@@ -12,11 +12,11 @@ import {
   ContainerModalStyled,
   ContentWrapperStyled,
   LoadingDivStyled,
-} from './successIndicator.styled'
+} from './loginSuccessModal.styled'
 
 export function LoginIsSuccessModal({
   redirect,
-  success,
+  modalState,
   isOpen,
   onClose,
   errorMsg,
@@ -26,22 +26,22 @@ export function LoginIsSuccessModal({
   useEffect(() => {
     let timeOut: number
 
-    if (success === 'success' && isOpen) {
+    if (modalState === 'success' && isOpen) {
       timeOut = window.setTimeout(() => {
         navigate(redirect)
-      }, 1500)
+      }, 3000)
     }
 
     return () => clearTimeout(timeOut)
-  }, [success, navigate, redirect, isOpen])
+  }, [modalState, navigate, redirect, isOpen])
 
   function handleContinueToRedirect() {
     navigate(redirect)
   }
 
   return (
-    <ContainerModalStyled isOpen={isOpen} success={success}>
-      <ContentWrapperStyled success={success}>
+    <ContainerModalStyled isOpen={isOpen} success={modalState}>
+      <ContentWrapperStyled success={modalState}>
         <div className="content">
           <IconContext.Provider
             value={{
@@ -51,7 +51,7 @@ export function LoginIsSuccessModal({
             }}
           >
             {(() => {
-              switch (success) {
+              switch (modalState) {
                 case 'success':
                   return <CheckCircle className="animate" />
                 case 'error':
@@ -67,7 +67,7 @@ export function LoginIsSuccessModal({
           </IconContext.Provider>
           <h2>
             {(() => {
-              switch (success) {
+              switch (modalState) {
                 case 'success':
                   return 'Login Concluído com sucesso!'
                 case 'error':
@@ -79,7 +79,7 @@ export function LoginIsSuccessModal({
           </h2>
         </div>
         {(() => {
-          switch (success) {
+          switch (modalState) {
             case 'success':
               return (
                 <ButtonModalStyled
