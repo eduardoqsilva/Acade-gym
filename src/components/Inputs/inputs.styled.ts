@@ -64,8 +64,7 @@ export const InputWrapperStyled = styled.div<InputType>`
                   transparent;
               `
             : css`
-                border: ${(props) => props.theme.border.borderWidth} solid
-                  transparent;
+                border: none;
                 border-bottom: 2px solid #2f3030;
               `}
         `}
