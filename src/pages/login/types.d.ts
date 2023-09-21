@@ -1,5 +1,6 @@
 import { z } from 'zod'
 import { schemaForm } from './schema'
+import { UserData } from '../../contexts/auth/types'
 
 export type FormProps = z.infer<typeof schemaForm>
 
@@ -20,3 +21,5 @@ export interface LoginSubmitProps {
   openModal: () => void
   setModalErrorMsg: (text: string) => void
 }
+
+export type LoginResponse = UserData
