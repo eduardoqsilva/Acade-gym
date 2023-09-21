@@ -1,5 +1,5 @@
 import styled, { keyframes } from 'styled-components'
-import splashMin from '../../assets/imgs/splash/splashMin.jpg'
+import splashMin from '../../../../assets/imgs/splash/splashMin.jpg'
 import { DefaultTheme } from '../../../../styles/theme/defaultTheme'
 import { LogoStyled } from '../../../../components/Logo/logo.styled'
 

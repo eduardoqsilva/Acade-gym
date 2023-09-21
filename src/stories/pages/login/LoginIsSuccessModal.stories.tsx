@@ -1,5 +1,5 @@
 import { Meta, StoryObj } from '@storybook/react'
-import { LoginIsSuccessModalType } from '../../../pages/login/components/LoginIsSuccessModal/sucessIndicator'
+import { LoginIsSuccessModalType } from '../../../pages/login/components/LoginIsSuccessModal/loginIsSuccessModalTypes'
 import { LoginIsSuccessModal } from '../../../pages/login/components/LoginIsSuccessModal'
 import { withRouter } from 'storybook-addon-react-router-v6'
 
@@ -8,7 +8,7 @@ export default {
   component: LoginIsSuccessModal,
   tags: ['autodocs'],
   args: {
-    success: 'loading',
+    modalState: 'loading',
     isOpen: true,
     redirect: '#',
   },
@@ -28,7 +28,7 @@ export default {
 
 export const Loading: StoryObj<LoginIsSuccessModalType> = {
   args: {
-    success: 'loading',
+    modalState: 'loading',
     isOpen: true,
     redirect: '#',
   },
@@ -39,7 +39,7 @@ export const Loading: StoryObj<LoginIsSuccessModalType> = {
 
 export const Error: StoryObj<LoginIsSuccessModalType> = {
   args: {
-    success: 'error',
+    modalState: 'error',
     isOpen: true,
     redirect: '#',
   },
@@ -50,7 +50,7 @@ export const Error: StoryObj<LoginIsSuccessModalType> = {
 
 export const Success: StoryObj<LoginIsSuccessModalType> = {
   args: {
-    success: 'success',
+    modalState: 'success',
     isOpen: true,
     redirect: '#',
   },

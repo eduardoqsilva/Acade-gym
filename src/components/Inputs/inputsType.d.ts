@@ -1,26 +1,30 @@
-import React, { InputHTMLAttributes, ReactNode } from 'react'
+import React, {
+  ReactNode,
+  InputHTMLAttributes,
+  SelectHTMLAttributes,
+} from 'react'
 import { IconProps } from '@phosphor-icons/react'
 
 export type InputProps = InputHTMLAttributes<HTMLInputElement>
 
-export interface TextInputType extends Omit<InputProps, 'type'> {
+export interface InputType extends Omit<InputProps, 'type'> {
   type: 'number' | 'email' | 'text' | 'date' | 'password'
   icon?: React.ReactElement<IconProps>
   label: string
   variation?: '01' | '02'
-  warning: boolean
-  msgError: string
+  msgError: string | undefined
 }
 
-export interface DropdownInputType {
+export type DropdownProps = SelectHTMLAttributes<HTMLSelectElement>
+
+export interface DropdownType extends DropdownProps {
   icon?: React.ReactElement<IconProps>
   label: string
-  required?: boolean
   itens: string[]
-  warning: boolean
+  msgError?: string
 }
 
-export interface CheckBoxType {
+export interface CheckboxType extends Omit<InputProps, 'type'> {
   name: string
   text: ReactNode
 }

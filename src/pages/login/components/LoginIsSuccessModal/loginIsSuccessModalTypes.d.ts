@@ -1,5 +1,5 @@
 export interface LoginIsSuccessModalType {
-  success: 'loading' | 'success' | 'error'
+  modalState: 'loading' | 'success' | 'error'
   isOpen: boolean
   onClose: () => void
   redirect: string

@@ -3,7 +3,7 @@ import { ImgBack, SplashWrapper } from './splash.styled'
 import { splashType } from './splashType'
 import { Logo } from '../../../../components/Logo'
 
-import background from '../../assets/imgs/splash/splash.webp'
+import background from '../../../../assets/imgs/splash/splash.webp'
 
 export function SplashScreen({ refLogo, width = 120 }: splashType) {
   const [show, setShow] = useState(true)
