@@ -1,7 +1,7 @@
 import { Meta, StoryObj } from '@storybook/react'
 import { DivWrapperInputs } from '../../../.storybook/decorators'
 import { Dropdown } from '../../components/Inputs'
-import { DropdownInputType } from '../../components/Inputs/inputsType'
+import { DropdownType } from '../../components/Inputs/inputsType'
 
 export default {
   title: 'Global-components/Inputs/Dropdown',
@@ -12,8 +12,8 @@ export default {
     label: 'Dropdown',
   },
   decorators: [DivWrapperInputs],
-} as Meta<DropdownInputType>
+} as Meta<DropdownType>
 
-export const Default: StoryObj<DropdownInputType> = {
+export const Default: StoryObj<DropdownType> = {
   args: {},
 }

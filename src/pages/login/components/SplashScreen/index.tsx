@@ -1,4 +1,4 @@
-import { useLayoutEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { ImgBack, SplashWrapper } from './splash.styled'
 import { splashType } from './splashType'
 import { Logo } from '../../../../components/Logo'
@@ -10,7 +10,7 @@ export function SplashScreen({ refLogo, width = 120 }: splashType) {
   const [load, setLoad] = useState(false)
   const [position, setPosition] = useState<number>()
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     if (refLogo.current) {
       const pos = refLogo.current?.getBoundingClientRect()
       const height = Math.round(pos.height / 2) // metade do logo
