@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react'
 import { CheckBox } from '../../components/Inputs'
-import { CheckBoxType } from '../../components/Inputs/inputsType'
+import { CheckboxType } from '../../components/Inputs/inputsType'
 
 export default {
   title: 'Global-components/Inputs/CheckBox',
@@ -14,8 +14,8 @@ export default {
       </p>
     ),
   },
-} as Meta<CheckBoxType>
+} as Meta<CheckboxType>
 
-export const Default: StoryObj<CheckBoxType> = {
+export const Default: StoryObj<CheckboxType> = {
   args: {},
 }
