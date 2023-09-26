@@ -79,13 +79,13 @@ export const Dropdown = React.forwardRef<HTMLSelectElement, DropdownType>(
             {icon}
           </IconContext.Provider>
 
-          <label>{label}</label>
-          <select ref={ref} {...props}>
+          <label htmlFor={label}>{label}</label>
+          <select id={label} ref={ref} {...props}>
             <option value="">--</option>
-            {itens.map((i, id) => {
+            {itens?.text.map((text, index) => {
               return (
-                <option key={id} value={i}>
-                  {i}
+                <option key={index} value={itens?.value[index]}>
+                  {text}
                 </option>
               )
             })}
@@ -97,13 +97,26 @@ export const Dropdown = React.forwardRef<HTMLSelectElement, DropdownType>(
   },
 )
 
-export const CheckBox = React.forwardRef<HTMLInputElement, CheckboxType>(
-  function CheckBox({ text, name }, ref) {
+export const Checkbox = React.forwardRef<HTMLInputElement, CheckboxType>(
+  function Checkbox({ text, msgError, ...props }, ref) {
+    const [warning, setWarning] = useState(false)
+
+    useEffect(() => {
+      if (msgError) {
+        setWarning(true)
+      } else {
+        setWarning(false)
+      }
+    }, [msgError])
+
     return (
-      <CheckBoxStyled>
-        <input ref={ref} type="checkbox" id={name} />
-        <label htmlFor={name}>{text}</label>
-      </CheckBoxStyled>
+      <div>
+        <CheckBoxStyled>
+          <input id={props.name} type="checkbox" ref={ref} {...props} />
+          <label htmlFor={props.name}>{text}</label>
+        </CheckBoxStyled>
+        <ErrorTextStyled warning={warning}>{msgError}</ErrorTextStyled>
+      </div>
     )
   },
 )
