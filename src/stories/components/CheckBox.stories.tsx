@@ -1,10 +1,10 @@
 import { Meta, StoryObj } from '@storybook/react'
-import { CheckBox } from '../../components/Inputs'
+import { Checkbox } from '../../components/Inputs'
 import { CheckboxType } from '../../components/Inputs/inputsType'
 
 export default {
-  title: 'Global-components/Inputs/CheckBox',
-  component: CheckBox,
+  title: 'Global-components/Inputs/Checkbox',
+  component: Checkbox,
   tags: ['autodocs'],
   args: {
     name: 'check',
