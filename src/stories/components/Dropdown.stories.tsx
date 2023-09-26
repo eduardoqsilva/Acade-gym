@@ -8,7 +8,10 @@ export default {
   component: Dropdown,
   tags: ['autodocs'],
   args: {
-    itens: ['Item1', 'Item2', 'Item3'],
+    itens: {
+      text: ['Item1', 'Item2', 'Item3'],
+      value: ['Item1', 'Item2', 'Item3'],
+    },
     label: 'Dropdown',
   },
   decorators: [DivWrapperInputs],
