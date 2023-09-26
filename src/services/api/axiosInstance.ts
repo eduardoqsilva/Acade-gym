@@ -1,5 +1,5 @@
 import axios from 'axios'
 
 export const Api = axios.create({
-  baseURL: 'https://acade-mock-api.vercel.app',
+  baseURL: 'https://acade-fake-api.onrender.com/',
 })
