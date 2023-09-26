@@ -20,11 +20,11 @@ export type DropdownProps = SelectHTMLAttributes<HTMLSelectElement>
 export interface DropdownType extends DropdownProps {
   icon?: React.ReactElement<IconProps>
   label: string
-  itens: string[]
+  itens: { text: string[]; value: string[] }
   msgError?: string
 }
 
 export interface CheckboxType extends Omit<InputProps, 'type'> {
-  name: string
   text: ReactNode
+  msgError?: string
 }

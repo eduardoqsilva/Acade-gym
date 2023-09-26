@@ -5,6 +5,7 @@ import { LoginIsSuccessModal } from './components/LoginIsSuccessModal'
 import { Logo } from '../../components/Logo'
 import { Input } from '../../components/Inputs'
 import { Button } from '../../components/Button'
+import { useNavigate } from 'react-router-dom'
 
 import { useFormLogin } from './useFormLogin'
 import { useLoginSubmit } from './useLoginSubmit'
@@ -31,6 +32,7 @@ export function Login() {
   })
 
   const { errors, register, handleSubmit } = useFormLogin()
+  const navigate = useNavigate()
 
   const ref = useRef<HTMLDivElement>(null)
 
@@ -70,7 +72,12 @@ export function Login() {
           />
           <div className="buttonsWrapper">
             <Button text={'Entrar'} type="submit" />
-            <Button text={'Cadastrar'} variation="secundary" type="button" />
+            <Button
+              text={'Cadastrar'}
+              variation="secundary"
+              type="button"
+              click={() => navigate('/register')}
+            />
           </div>
         </FormStyled>
       </WrapperStyled>
